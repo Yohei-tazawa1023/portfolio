@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Salon Sample</title>
+  
+  <!-- リセットCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+  
+  <!-- style.css -->
+  <link rel="stylesheet" href="./css/style.css">
+  
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+  
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container header-inner">
+      <h1 class="logo">Salon Sample</h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">ホーム</a></li>
+          <li><a href="#menu">メニュー</a></li>
+          <li><a href="#style">スタイル</a></li>
+          <li><a href="#staff">スタッフ</a></li>
+          <li><a href="#access">アクセス</a></li>
+          <li><a href="#reserve">予約</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <!-- ファーストビュー -->
+    <section id="home" class="hero fadein">
+      <div class="hero-content">
+        <h2>「あなたらしさ」を引き出すヘアデザイン</h2>
+        <p>自然体で美しい、毎日が楽しくなるスタイルを。</p>
+        <a href="#reserve" class="btn">ご予約はこちら</a>
+      </div>
+    </section>
+
+    <!-- コンセプト -->
+    <section class="concept fadein">
+      <div class="container">
+        <h2>Concept</h2>
+        <p>私たちは「髪と心を癒すサロン」をコンセプトに、お客様一人ひとりに寄り添った丁寧なカウンセリングと施術を大切にしています。</p>
+      </div>
+    </section>
+
+    <!-- メニュー -->
+    <section id="menu" class="menu fadein">
+      <div class="container">
+        <h2>Menu</h2>
+        <ul>
+          <li>カット …… ¥4,500</li>
+          <li>カラー …… ¥6,000〜</li>
+          <li>パーマ …… ¥7,000〜</li>
+          <li>トリートメント …… ¥3,000〜</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- スタイル -->
+    <section id="style" class="style fadein">
+      <div class="container">
+        <h2>Style</h2>
+        <div class="gallery">
+          <img src="./img/style1.jpg" alt="ナチュラルロング">
+          <img src="./img/style2.jpg" alt="ボブスタイル">
+          <img src="./img/style3.jpg" alt="メンズショート">
+          <img src="./img/style4.jpg" alt="カラーリング">
+        </div>
+      </div>
+    </section>
+
+    <!-- スタッフ -->
+    <section id="staff" class="staff fadein">
+      <div class="container">
+        <h2>Staff</h2>
+        <div class="staff-list">
+          <div class="staff-item">
+            <img src="./img/staff1.jpg" alt="女性スタイリスト">
+            <p>スタイリスト A</p>
+          </div>
+          <div class="staff-item">
+            <img src="./img/staff2.jpg" alt="男性スタイリスト">
+            <p>スタイリスト B</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- アクセス -->
+    <section id="access" class="access fadein">
+      <div class="container">
+        <h2>Access</h2>
+        <p>〒123-4567 東京都○○区△△ 1-2-3</p>
+        <p>TEL: 03-1234-5678</p>
+        <div class="map-area">
+          <iframe src="https://maps.google.com/maps?q=tokyo&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"></iframe>
+          <img src="./img/salon_exterior.jpg" alt="サロン外観" class="salon-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- 予約フォーム -->
+    <section id="reserve" class="reserve fadein">
+      <div class="container">
+        <h2>Reserve</h2>
+        <p>以下のフォームよりご予約を承ります。</p>
+        <form class="reserve-form">
+          <label>お名前<span>*</span>
+            <input type="text" name="name" required>
+          </label>
+          <label>電話番号<span>*</span>
+            <input type="tel" name="tel" required>
+          </label>
+          <label>メールアドレス
+            <input type="email" name="email">
+          </label>
+          <label>希望日<span>*</span>
+            <input type="date" name="date" required>
+          </label>
+          <label>メニュー
+            <select name="menu">
+              <option value="cut">カット</option>
+              <option value="color">カラー</option>
+              <option value="perm">パーマ</option>
+              <option value="treatment">トリートメント</option>
+            </select>
+          </label>
+          <label>ご要望・メッセージ
+            <textarea name="message"></textarea>
+          </label>
+          <button type="submit" class="btn">送信する</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Salon Sample. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="./js/script.js"></script>
+</body>
+</html>

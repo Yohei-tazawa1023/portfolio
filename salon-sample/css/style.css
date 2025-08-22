@@ -1,0 +1,184 @@
+/* 全体 */
+body {
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav a {
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+.nav a:hover {
+  color: #b28c58;
+}
+
+/* ヒーロー */
+.hero {
+  background: url('../img/店内2.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #4a2c2a; /* 深めのネイビー推奨 */
+  text-shadow: 2px 2px 6px rgba(255, 255, 255, 0.6);
+}
+.hero-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  margin-bottom: 2rem;
+}
+.btn {
+  display: inline-block;
+  background: #b28c58;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* セクション共通 */
+section {
+  padding: 4rem 0;
+}
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* メニュー */
+.menu ul {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+/* スタイルギャラリー */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* スタッフ */
+.staff-list {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+.staff-item img {
+  width: 200px;
+  border-radius: 50%;
+}
+.staff-item p {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* アクセス */
+.map-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.map-area iframe {
+  width: 100%;
+  height: 300px;
+}
+.salon-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* 予約 */
+.reserve {
+  text-align: center;
+}
+
+/* フッター */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+/* 予約フォーム */
+.reserve-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.reserve-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.reserve-form input,
+.reserve-form select,
+.reserve-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.reserve-form span {
+  color: red;
+  margin-left: 4px;
+}
+.reserve-form button {
+  cursor: pointer;
+}
+
+/* スクロールアニメーション */
+.fadein {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+.fadein.show {
+  opacity: 1;
+  transform: translateY(0);
+}
