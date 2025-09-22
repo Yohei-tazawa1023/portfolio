@@ -22,7 +22,7 @@ header {
 }
 
 .logo img{
-  width: 200px;
+  width: 150px;
   height: 100px;
   display: block;
   object-fit: contain;
@@ -47,13 +47,13 @@ header {
   max-width: 100%;
   max-height: fit-content;
   display: flex;
-  justify-content: center; /* ここが画像を中央に寄せます */
+  justify-content: center;
   margin: 0 auto;
 }
 .main-visual img {
-  width: 80%; /* 必要なら適切に調整 */
-  height: 100%;
-  margin-bottom: 100px;
+  width: 70%;
+  height: 50%;
+  margin-bottom: 50px;
 }
 
 .category h2{
@@ -67,12 +67,12 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 40px; /* カードの間隔 */
+  gap: 40px;
   margin-bottom: 100px;
 }
 
 .skill-box {
-  flex: 1 1 calc(33.333% - 40px); /* 3カラム */
+  flex: 1 1 calc(33.333% - 40px);
   background: #fff;
   border-radius: 10px;
   padding: 20px;
@@ -92,20 +92,20 @@ header {
 }
 
 .skill_icon img {
-  width: 60px;   /* アイコンサイズ調整 */
+  width: 60px;
   height: 60px;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
 .skill_list {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 2.0;
   text-align: left;
 }
 
 .skill_list .icon {
-  width: 1em;   /* 文字サイズと同じ大きさ */
+  width: 1em;
   height: 1em;
   vertical-align: middle;
   margin-right: 6px;
@@ -120,7 +120,6 @@ header {
   width: var(--item-width);
   position: relative;
   margin-bottom: 40px;
-  /* 各パーツ配置をグリッドでレイアウト */
   display: grid;
   grid-template-areas: "item item item" "left markers right";
   grid-template-columns: 1fr 2fr 1fr;
@@ -131,85 +130,85 @@ header {
 /* ----------------------*
  * カルーセル
  * ----------------------*/
-/* 親要素の設定 */
 .gallery {
   width: 100%;
-  overflow: hidden; /* 子要素がはみ出さないようにする */
+  overflow: hidden;
 }
 
-
-/* 各アイテムの設定 */
 .gallery_slide li {
-  flex: 0 0 10%; /* 1つの画像が全体の4分の1の幅を取る */
-  width: 100%; /* 幅を指定 */
+  flex: 0 0 10%;
+  width: 100%;
 }
 
 
-/* スライダー部分の設定 */
 .gallery_slide {
   display: flex;
-  animation: slide 40s linear infinite; /* 40秒で1周する設定 */
+  justify-content: center;
+  gap: 100px;
 }
 
 .gallery_slide li {
-  flex: 0 0 25%;
-  width: 100%;
-  height: 300px;           /* 高さを固定 */
-  display: flex;           /* 中央揃え用 */
-  align-items: center;     /* 縦方向センター */
-  justify-content: center; /* 横方向センター */
-  overflow: hidden;        /* 枠からはみ出す部分を隠す */
+  width: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #908e8ee1;
 }
 
 .gallery_slide li img {
-  height: 100%;   /* 高さ100px以内に収める */
-  width: 50%;        /* 横幅は自動調整して縦横比を維持 */
-  object-fit: cover; /* 余白ありで収める場合 */
+  height: auto;
+  width: 100%;
+  object-fit: contain;
 }
 
 .item  {
   background-color: #80BA4A;
 }
 
+/* View more */
+
 .btn {
-	border-radius: 25px;
-	position: relative;
+	font-size: 14px;
+	border: 1px solid #666;
+	text-align: center;
+	max-width: 200px;
+	margin: 30px auto;
+	font-family: 'Noto Serif JP', serif;
 }
-
-.btn a::after {
-	content: "";
+.btn a {
+	color: #666;
 	display: block;
-	position: absolute;
-	background-image: url('arrow.png');
-	background-size: 100%;
-	width: 7px;
-	height: 17px;
-	top: 0;
-	bottom: 0;
-	right: 10px;
-	margin: auto;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
-/* アニメーション（スライド） */
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
 
 /* フッター */
 
+footer {
+  padding: 30px 0;
+}
+
 .footer_menu {
-  text-align: center;
+  justify-content:center ;
+}
+
+.footer_logo_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  font-size: 16px;
+  align-items: center;
 }
 
 .footer_menu img {
   width: 200px;
-  height: 100px;
-  display: block;
   object-fit: contain;
   border-radius: 20px;
   text-align: center;
@@ -218,19 +217,20 @@ header {
 .footer_menu_flex {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  text-align: center;
-}
-
-.footer_menu li {
-  margin-left: 40px;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
   font-size: 16px;
 }
 
-.footer_menu li a {
+.footer_menu_flex li {
+  margin-left: 40px;
+}
+
+.footer_menu_flex li a {
   transition: .3s;
 }
-.footer_menu li a:hover {
+.footer_menu_flex li a:hover {
   color: #80BA4A;
   transition: .3s;
 }
