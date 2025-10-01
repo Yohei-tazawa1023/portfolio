@@ -164,6 +164,24 @@ header {
   object-fit: contain;
 }
 
+.gallery_layout {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #000000;
+  background: #FFF;
+  border: solid 1px #000000;
+}
+
+.gallery_layout h3{
+
+margin: 10px 0;
+}
+
+.gallery_layout p{
+margin: 10px 0;
+font-size: 10px;
+}
+
 .item  {
   background-color: #80BA4A;
 }
