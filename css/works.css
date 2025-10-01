@@ -1,0 +1,168 @@
+html {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ヘッター */
+header {
+  padding: 20px 0;
+}
+
+.logo img{
+  width: 150px;
+  height: 100px;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.header_menu li {
+  margin-left: 40px;
+  font-size: 16px;
+}
+
+.header_menu li a {
+  transition: .3s;
+}
+.header_menu li a:hover {
+  color: #80BA4A;
+  transition: .3s;
+}
+
+/* Works */
+
+.category h2{
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin: 50px;
+}
+
+.works_container {
+  --item-width: 600px;
+  --item-height: 300px;
+  width: var(--item-width);
+  position: relative;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-areas: "item item item" "left markers right";
+  grid-template-columns: 1fr 2fr 1fr;
+  row-gap: 16px;
+  justify-content: center;
+}
+
+.gallery {
+  width: 100%;
+  overflow: hidden;
+}
+
+.gallery_slide li {
+  flex: 0 0 10%;
+  width: 100%;
+}
+
+
+.gallery_slide {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.gallery_slide li {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #908e8ee1;
+}
+
+.gallery_slide li img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
+
+.gallery_layout {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  color: #000000;
+  background: #FFF;
+  border: solid 1px #000000;
+}
+
+.gallery_layout h3{
+
+margin: 10px 0;
+}
+
+.gallery_layout p{
+margin: 10px 0;
+font-size: 10px;
+}
+
+.item  {
+  background-color: #80BA4A;
+}
+
+/* フッター */
+
+footer {
+  padding: 30px 0;
+}
+
+.footer_menu {
+  justify-content:center ;
+}
+
+.footer_logo_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  font-size: 16px;
+  align-items: center;
+}
+
+.footer_menu img {
+  width: 200px;
+  object-fit: contain;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.footer_menu_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  font-size: 16px;
+}
+
+.footer_menu_flex li {
+  margin-left: 40px;
+}
+
+.footer_menu_flex li a {
+  transition: .3s;
+}
+.footer_menu_flex li a:hover {
+  color: #80BA4A;
+  transition: .3s;
+}
