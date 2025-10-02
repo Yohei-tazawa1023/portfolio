@@ -149,7 +149,6 @@ header {
 }
 
 .gallery_slide li {
-  width: 200px;
   height: 150px;
   display: flex;
   align-items: center;
@@ -165,6 +164,7 @@ header {
 }
 
 .gallery_layout {
+  width: 260px;
   padding: 0.5em 1em;
   margin: 2em 0;
   color: #000000;
@@ -182,8 +182,10 @@ margin: 10px 0;
 font-size: 10px;
 }
 
-.item  {
-  background-color: #80BA4A;
+.item {
+  display: block;
+  width: 100%;
+  background-color: #80ba4a;
 }
 
 /* View more */
