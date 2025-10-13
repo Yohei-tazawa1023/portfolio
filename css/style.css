@@ -255,3 +255,30 @@ footer {
   color: #80BA4A;
   transition: .3s;
 }
+
+/* fade in アニメーション */
+.is-fadeIn {
+  opacity: 0; /* 要素を透過 */
+  visibility: hidden; /* 要素を認識させなくする */
+  transition: opacity 1s, visibility 1s, transform 1s; /* 要素が変化した時の時間を設定 */
+  transform: translateY(30px); /* 下から上にフェードイン */
+}
+
+.is-active {
+  opacity: 1; /*要素を表示させる*/
+  visibility: visible; /*要素を認識させる*/
+  transform: translateY(0); /*元の位置に戻す*/
+}
+
+.is-fadeIn2 {
+  opacity: 0; /* 要素を透過 */
+  visibility: hidden; /* 要素を認識させなくする */
+  transition: opacity 1.3s, visibility 1.3s, transform 1.3s; /* 要素が変化した時の時間を設定 */
+  transform: translateY(30px); /* 下から上にフェードイン */
+}
+
+.is-active2 {
+  opacity: 1; /*要素を表示させる*/
+  visibility: visible; /*要素を認識させる*/
+  transform: translateY(0); /*元の位置に戻す*/
+}
