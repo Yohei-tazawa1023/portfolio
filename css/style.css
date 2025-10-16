@@ -259,14 +259,14 @@ footer {
 
 /* fade in アニメーション */
 .is-fadeIn {
-  opacity: 0; /* 要素を透過 */
-  visibility: hidden; /* 要素を認識させなくする */
-  transition: opacity 1s, visibility 1s, transform 1s; /* 要素が変化した時の時間を設定 */
-  transform: translateY(30px); /* 下から上にフェードイン */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 1s, transform 1s;
+  transform: translateY(30px);
 }
 
 .is-active {
-  opacity: 1; /*要素を表示させる*/
-  visibility: visible; /*要素を認識させる*/
-  transform: translateY(0); /*元の位置に戻す*/
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
