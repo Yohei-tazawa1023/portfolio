@@ -3,215 +3,631 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Youhei's Portforio</title>
+  <title>Yohei | Portfolio — Web制作・業務システム開発</title>
+  <meta name="description" content="Web制作と業務システム開発のポートフォリオ。HTML/CSS/JavaScript のサイト制作から、Laravel・AI 連携の業務アプリまで。">
+  <meta name="theme-color" content="#ffffff">
 
-  <!-- リセットCSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@3.0.2/destyle.css">
+  <!-- OGP（SNS でシェアしたときの表示）。URL は GitHub Pages の公開 URL -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yohei | Portfolio — Web制作・業務システム開発">
+  <meta property="og:description" content="HTML/CSS/JavaScript のサイト制作から、Laravel・AI 連携の業務アプリまで。制作実績をご覧いただけます。">
+  <meta property="og:url" content="https://yohei-tazawa1023.github.io/portfolio/">
+  <meta property="og:image" content="https://yohei-tazawa1023.github.io/portfolio/images/ogp.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <!-- style.css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
-  <!-- Google font -->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <!-- JS が動くときだけ、スクロールで現れる演出を有効にする（JS が無くても内容は全部見える） -->
+  <script>
+    document.documentElement.classList.add('js');
+    // 4 秒たっても main.js が動かなかったとき（通信不調・ブロックなど）は、演出を諦めて、すべての内容を表示する。
+    // main.js が動いたら、この保険は解除される。
+    window.__revealGuard = setTimeout(function () { document.documentElement.classList.remove('js'); }, 4000);
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <noscript>
+    <!-- JS が無効のとき: 詳細（モーダル）は閉じた状態では見えないので、ページ内にそのまま表示する -->
+    <style>
+      dialog.modal { display: block; position: static; width: auto; max-width: 1120px; max-height: none; margin: 24px auto; border: 1px solid var(--line); }
+      .modal__inner { max-height: none; overflow: visible; }
+      .modal__close, .work-card__more, .nav-toggle { display: none; }
+      /* JS が無いときは、スマホ幅でもナビを折りたたまず、ヘッダー内に並べる */
+      .site-header { position: static; height: auto; }
+      .header-inner { flex-wrap: wrap; padding: 10px 0; }
+      .site-nav { display: block !important; position: static; padding: 0; border: 0; box-shadow: none; background: transparent; }
+      .site-nav ul { flex-direction: row; flex-wrap: wrap; gap: 4px; }
+      .site-nav a { padding: 8px 12px; font-size: 15px; }
+      .work-card__media { pointer-events: none; }
+    </style>
+  </noscript>
 </head>
-<body>
-  <header>
-    <div class="container flex is-fadeIn">
-      <div class="logo">
-        <a href="/">
-        <img src="./images/logo.jpg" alt="ロゴ">
-        </a>
-      </div>
-      <nav>
-        <ul class="header_menu flex">
-          <li><a href="./works/index.html">Works</a></li>
-          <li><a href="./about/index.html">About</a></li>
-          <li><a href="./blog/index.html">Blog</a></li>
-          <li><a href="./contact/index.html">Contact</a></li>
+<body id="top">
+  <a class="skip-link" href="#main">本文へスキップ</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Yohei ポートフォリオ トップへ">Yohei<span aria-hidden="true">.</span></a>
+
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="nav-toggle__label">メニュー</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="メインメニュー">
+        <ul>
+          <li><a href="#works">Works</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact" class="site-nav__cta">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-<!-- main -->
-  <main>
-      <!-- mainVisual -->
-          <div class="main-visual is-fadeIn">
-            <img src="./images/main sample.jpg" alt="">
+  <main id="main">
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Web Production / Business System Development</p>
+          <h1 id="hero-title">デザインと<wbr>仕組みの<wbr>両方から、<wbr><span class="hl">使いやすいWeb</span>を<wbr>つくる。</h1>
+          <p class="lead">HTML・CSS・JavaScript によるサイト制作から、Laravel と AI を使った業務システムまで。実際に動くものを作りながら学び、改善を続けています。</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="#works">制作実績を見る</a>
+            <a class="btn btn--ghost" href="#contact">お問い合わせ</a>
           </div>
-
-      <!-- Skills -->
-        <section id="Skills" class="category">
-          <h2 class="is-fadeIn">Skills</h2>
-
-          <div class="container skills-wrapper is-fadeIn">
-            <div class="skill-box">
-              <h3 class="skill_title">コーディング</h3>
-              <p class="skill_sub">CODING</p>
-              <p class="skill_icon">
-                <img src="./images/プログラムアイコン.jpeg" alt="">
-              </p>
-              <p class="skill_list">
-                <img src="./images/svg_icon/html5.svg" alt="html" class="icon">HTML/CSS<br>
-                <img src="./images/svg_icon/javascript.svg" alt="javascript" class="icon">JavaScript<br>
-                <img src="./images/svg_icon/php.svg" alt="php" class="icon">PHP<br>
-                <img src="./images/svg_icon/laravel.svg" alt="laravel" class="icon">Laravel<br>
-                <img src="./images/svg_icon/wordpress.svg" alt="wordpress" class="icon">WordPress<br>
-              </p>
-            </div>
-
-            <div class="skill-box">
-              <h3 class="skill_title">デザイン</h3>
-              <p class="skill_sub">DESIGN</p>
-              <p class="skill_icon">
-                <img src="./images/ペン.jpeg" alt="direction">
-              </p>
-              <p class="skill_list">
-                <img src="./images/ペン.jpeg" alt="photoshop" class="icon">Adobe Photoshop <br>
-                <img src="./images/ペン.jpeg" alt="Illustrator" class="icon">Adobe Illustrator <br>
-                <img src="./images/svg_icon/figma.svg" alt="figma" class="icon">Figma <br>
-                <img src="./images/svg_icon/canva.svg" alt="canva" class="icon">Canva <br>
-                <img src="./images/svg_icon/studio3t.svg" alt="studio" class="icon">Studio <br>
-              </p>
-            </div>
-
-            <div class="skill-box">
-              <h3 class="skill_title">AI・ノーコードツール</h3>
-              <p class="skill_sub">AI・No code</p>
-              <p class="skill_icon">
-                <img src="./images/アイディアアイコン.jpeg" alt="direction">
-              </p>
-              <p class="skill_list">
-                <img src="./images/アイディアアイコン.jpeg" alt="chatgpt" class="icon">ChatGPT <br>
-                <img src="./images/svg_icon/framer.svg" alt="framer" class="icon">Framer <br>
-                <img src="./images/svg_icon/webflow.svg" alt="webflow" class="icon">Webflow <br>
-                <img src="./images/アイディアアイコン.jpeg" alt="Midjourney" class="icon">Midjourney <br>
-                <img src="./images/プログラムアイコン.jpeg" alt="runway" class="icon">Runway <br>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Works -->
-        <section id="works" class="category">
-          <h2 class="is-fadeIn">Works</h2>
-
-          <!-- Works一覧スライダー -->
-
-          <div class="gallery swiper is-fadeIn">
-            <ul class="gallery_slide swiper-wrapper">
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/hero.jpg" alt="" /></li>
-                <p>ホームページ制作</p>
-                <h3>株式会社sarad-meeting</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/店内2.jpg" alt="" /></li>
-                <p>ホームページ制作</p>
-                <h3>salon-sample</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/SAMURAIバナー.png" alt="" /></li>
-                <p>バナー制作</p>
-                <h3>SAMURAI ENGINEER バナー</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/hero.jpg" alt="" /></li>
-                <p>ホームページ制作</p>
-                <h3>株式会社sarad-meeting</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/店内2.jpg" alt="" /></li>
-                <p>ホームページ制作</p>
-                <h3>salon-sample</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/SAMURAIバナー.png" alt="" /></li>
-                <p>バナー制作</p>
-                <h3>SAMURAI ENGINEER バナー</h3>
-              </div>
-            </ul>
-          </div>
-        </section>
-
-        <div class="btn is-fadeIn">
-          <a href="./works/index.html">View more</a>
+          <ul class="hero-tags" aria-label="得意分野">
+            <li>HTML / CSS / JavaScript</li>
+            <li>PHP / Laravel</li>
+            <li>AI 連携</li>
+          </ul>
         </div>
 
-        <!-- Blog -->
-        <section id="blog" class="category">
-          <h2 class="is-fadeIn">Blog</h2>
-          <!-- Blog一覧スライダー -->
-
-          <div class="gallery swiper is-fadeIn">
-            <ul class="gallery_slide swiper-wrapper">
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-              <div class="gallery_layout swiper-slide">
-                <li class="item"><img src="./images/main sample.jpg" alt=""></li>
-                <p>更新日</p>
-                <h3>タイトル</h3>
-              </div>
-            </ul>
-          </div>
-        </section>
-
-      <div class="btn is-fadeIn">
-        <a href="./blog/index.html">View more</a>
+        <!-- ヒーローの図: 制作実績の画面を重ねて見せる（装飾なので alt は空） -->
+        <div class="hero-visual" aria-hidden="true">
+          <img class="hero-card hero-card--back" src="images/works/salon-pc-w600.webp" width="600" height="375" alt="">
+          <img class="hero-card hero-card--mid" src="images/works/salad-pc-w600.webp" width="600" height="375" alt="">
+          <img class="hero-card hero-card--front" src="images/works/case-list-w600.webp" width="600" height="375" alt="">
+        </div>
       </div>
+    </section>
 
+    <!-- ================= Works ================= -->
+    <section class="section" id="works" aria-labelledby="works-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Works</p>
+          <h2 id="works-title">制作実績</h2>
+          <p class="section-lead">画像をクリックすると、制作の背景や過程、意識したことをご覧いただけます。</p>
+        </div>
+
+        <div class="works-grid">
+          <!-- 案件情報管理サイト（ピックアップ） -->
+          <article class="work-card work-card--featured reveal" id="work-case">
+            <button type="button" class="work-card__media" data-modal-target="modal-case" aria-haspopup="dialog">
+              <img src="images/works/case-list-w1200.webp"
+                   srcset="images/works/case-list-w600.webp 600w, images/works/case-list-w1200.webp 1200w"
+                   sizes="(min-width: 960px) 640px, 100vw" width="1200" height="750"
+                   alt="案件情報管理サイトの一覧画面" loading="lazy">
+              <span class="work-card__more">詳しく見る</span>
+            </button>
+            <div class="work-card__body">
+              <p class="work-card__cat">ピックアップ ／ 業務システム開発（個人開発）</p>
+              <h3 class="work-card__title">案件情報管理サイト</h3>
+              <p class="work-card__desc">案件メールを貼り付けるだけで、AI が案件名・単価・スキルなどに整理して保存。検索・並び替え・Excel/CSV 出力・削除まで行える管理サイトです。</p>
+              <ul class="tags" aria-label="使用技術">
+                <li>Laravel</li><li>MySQL</li><li>Gemini API</li><li>JavaScript</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- サラダ会議 -->
+          <article class="work-card reveal" id="work-salad">
+            <button type="button" class="work-card__media" data-modal-target="modal-salad" aria-haspopup="dialog">
+              <img src="images/works/salad-pc-w1200.webp"
+                   srcset="images/works/salad-pc-w600.webp 600w, images/works/salad-pc-w1200.webp 1200w"
+                   sizes="(min-width: 960px) 520px, 100vw" width="1200" height="750"
+                   alt="サラダ会議のトップページ" loading="lazy">
+              <span class="work-card__more">詳しく見る</span>
+            </button>
+            <div class="work-card__body">
+              <p class="work-card__cat">Webサイト制作</p>
+              <h3 class="work-card__title">サラダ会議</h3>
+              <p class="work-card__desc">「新鮮なつながりを、ひとつのサラダから」をコンセプトにした、架空企業のコーポレートサイト。スクロールに合わせた動きつき。</p>
+              <ul class="tags" aria-label="使用技術"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </div>
+          </article>
+
+          <!-- Salon Sample -->
+          <article class="work-card reveal" id="work-salon">
+            <button type="button" class="work-card__media" data-modal-target="modal-salon" aria-haspopup="dialog">
+              <img src="images/works/salon-pc-w1200.webp"
+                   srcset="images/works/salon-pc-w600.webp 600w, images/works/salon-pc-w1200.webp 1200w"
+                   sizes="(min-width: 960px) 520px, 100vw" width="1200" height="750"
+                   alt="Salon Sample のトップページ" loading="lazy">
+              <span class="work-card__more">詳しく見る</span>
+            </button>
+            <div class="work-card__body">
+              <p class="work-card__cat">Webサイト制作</p>
+              <h3 class="work-card__title">Salon Sample</h3>
+              <p class="work-card__desc">「髪と心を癒すサロン」を想定した美容室のサンプルサイト。予約フォームと Google マップつき。スマートフォンでも崩れないレイアウト。</p>
+              <ul class="tags" aria-label="使用技術"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+            </div>
+          </article>
+
+          <!-- SAMURAI ENGINEER バナー -->
+          <article class="work-card reveal" id="work-samurai">
+            <button type="button" class="work-card__media is-contain" data-modal-target="modal-samurai" aria-haspopup="dialog">
+              <img src="images/works/banner-samurai-w600.webp"
+                   srcset="images/works/banner-samurai-w600.webp 600w, images/works/banner-samurai-w1080.webp 1080w"
+                   sizes="(min-width: 960px) 360px, 70vw" width="1080" height="1080"
+                   alt="SAMURAI ENGINEER の正方形バナー" loading="lazy">
+              <span class="work-card__more">詳しく見る</span>
+            </button>
+            <div class="work-card__body">
+              <p class="work-card__cat">バナー制作</p>
+              <h3 class="work-card__title">SAMURAI ENGINEER バナー</h3>
+              <p class="work-card__desc">Web デザインスクールの無料説明会への誘導を想定した、正方形（1080×1080）の広告バナー。</p>
+            </div>
+          </article>
+
+          <!-- OUTDOOR FESTIVAL バナー -->
+          <article class="work-card reveal" id="work-outdoor">
+            <button type="button" class="work-card__media is-contain" data-modal-target="modal-outdoor" aria-haspopup="dialog">
+              <img src="images/works/banner-outdoor-w1200.webp"
+                   srcset="images/works/banner-outdoor-w600.webp 600w, images/works/banner-outdoor-w1200.webp 1200w"
+                   sizes="(min-width: 960px) 520px, 100vw" width="1200" height="628"
+                   alt="OUTDOOR FESTIVAL 2024 の告知バナー" loading="lazy">
+              <span class="work-card__more">詳しく見る</span>
+            </button>
+            <div class="work-card__body">
+              <p class="work-card__cat">バナー制作</p>
+              <h3 class="work-card__title">OUTDOOR FESTIVAL 2024 バナー</h3>
+              <p class="work-card__desc">アウトドアイベントの告知を想定した横長バナー。日時・場所・「入場無料」を一目で伝える構成。</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- ===== 詳細モーダル（画像クリックで開く）===== -->
+
+        <!-- 案件情報管理サイト -->
+        <dialog class="modal" id="modal-case" aria-labelledby="modal-case-title">
+          <div class="modal__inner">
+            <button type="button" class="modal__close" data-modal-close aria-label="閉じる" autofocus>&times;</button>
+            <header class="modal__head">
+              <p class="modal__cat">業務システム開発 ／ 個人開発</p>
+              <h3 id="modal-case-title">案件情報管理サイト</h3>
+              <p class="modal__summary">案件メールを貼り付けるだけで、AI が案件名・単価・スキルなどに整理して保存。検索・並び替え・Excel/CSV 出力・削除まで行える管理サイトです。</p>
+            </header>
+
+            <div class="modal__body">
+              <div class="gallery" data-gallery>
+                <figure>
+                  <img src="images/works/case-list-w1200.webp" data-thumb="images/works/case-list-w600.webp" width="1200" height="750" loading="lazy" alt="案件情報管理サイトの一覧画面。検索欄、並び順、Excel と CSV のダウンロードボタン、案件のカードが並ぶ">
+                  <figcaption>一覧画面：検索・並び替え・Excel/CSV 出力・選択して削除</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/case-create-w1200.webp" data-thumb="images/works/case-create-w600.webp" width="1200" height="750" loading="lazy" alt="案件メールを貼り付けた登録画面">
+                  <figcaption>登録画面：案件メールをそのまま貼り付けるだけ（画像は架空のメール）</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/case-detail-w1200.webp" data-thumb="images/works/case-detail-w600.webp" width="1200" height="917" loading="lazy" alt="AI が整理した結果の詳細画面。単価、稼働形態、必須スキル、歓迎スキル、案件詳細が項目ごとに表示される">
+                  <figcaption>詳細画面：AI が整理した結果。単価は原文に加えて「月額換算」も表示</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/case-registered-w1200.webp" data-thumb="images/works/case-registered-w600.webp" width="1200" height="750" loading="lazy" alt="1通のメールから3件の案件が登録された結果画面">
+                  <figcaption>登録結果：1通のメールに複数の案件があれば、自動で 1 件ずつに分割して登録</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/case-search-w1200.webp" data-thumb="images/works/case-search-w600.webp" width="1200" height="750" loading="lazy" alt="キーワードで絞り込んだ検索結果の一覧">
+                  <figcaption>検索・絞り込み：複数キーワード、稼働形態、単価の範囲、並び順を組み合わせられる</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/case-delete-w1200.webp" data-thumb="images/works/case-delete-w600.webp" width="1200" height="750" loading="lazy" alt="削除の確認画面。元に戻せないことが警告されている">
+                  <figcaption>削除の確認画面：元に戻せないことを明記し、誤操作を防ぐ</figcaption>
+                </figure>
+                <figure class="is-portrait">
+                  <img src="images/works/case-mobile-w600.webp" data-thumb="images/works/case-mobile-w600.webp" width="600" height="1298" loading="lazy" alt="スマートフォンで表示した一覧画面">
+                  <figcaption>スマートフォン表示：画面幅に合わせてレイアウトが変わる</figcaption>
+                </figure>
+              </div>
+
+              <div class="modal__content">
+                <p class="note-ai">※ 画像はすべて架空のデータです。</p>
+
+                <dl class="facts">
+                  <div><dt>制作期間</dt><dd>約 4 日（2026年10月）</dd></div>
+                  <div><dt>担当</dt><dd>企画・設計・開発・テスト（個人開発）</dd></div>
+                  <div><dt>使用技術</dt><dd>PHP 8.2 ／ Laravel 12 ／ MySQL ／ HTML・CSS・JavaScript ／ Gemini API（Claude API への切替にも対応）／ PHPUnit ／ Git</dd></div>
+                  <div><dt>公開</dt><dd>個人利用のため非公開（ローカル環境で動作）</dd></div>
+                </dl>
+
+                <section class="modal__section">
+                  <h4>制作背景</h4>
+                  <p>エンジニア向けの案件メールは、書き方が会社ごとに違い、単価・必須スキル・稼働形態などの条件を見比べるのに手間がかかります。メール本文を貼り付けるだけで項目ごとに整理され、一覧で検索・比較でき、スプレッドシートにも出力できれば、案件の確認と管理が楽になると考えて制作しました。</p>
+                </section>
+
+                <section class="modal__section">
+                  <h4>制作過程</h4>
+                  <ol class="steps">
+                    <li><strong>要件の整理と段階的な計画</strong>「登録 → 一覧・検索 → 出力」の順にフェーズを分け、各段階で仕様どおりに動くかを確認してから次へ進める進め方にしました。</li>
+                    <li><strong>データベース設計</strong>案件テーブルを設計。単価は「原文の表記」と「並び替え用の数値（月額・円）」の両方を保存し、表記の揺れがあっても並び替えや絞り込みができるようにしました。</li>
+                    <li><strong>AI との連携</strong>メール本文を AI に渡し、決まった形式（JSON）で項目を受け取る構成にしました。1 通に複数の案件があれば 1 件ずつに分割。無料枠の Gemini で検証し、設定で Claude にも切り替えられる作りにしています。</li>
+                    <li><strong>一覧・検索・並び替え・絞り込み</strong>複数キーワード、稼働形態、単価の範囲、並び順、ページ移動を実装しました。</li>
+                    <li><strong>Excel/CSV 出力</strong>一覧の条件をそのまま反映して出力。Excel は列幅・折り返し・見出しの固定つきで、スプレッドシートでも読みやすくしました。</li>
+                    <li><strong>削除機能</strong>確認画面つきで、複数件まとめて取り消せるようにしました。</li>
+                    <li><strong>テストと動作確認</strong>自動テスト（200 件超）と、画面・実際のデータベースでの動作確認を重ねました。ダブルクリックで起動できるランチャーも作成しています。</li>
+                  </ol>
+                </section>
+
+                <section class="modal__section">
+                  <h4>意識したこと</h4>
+                  <ul class="points">
+                    <li><strong>AI の答えを鵜呑みにしない。</strong>単価の換算結果はサーバー側でも検証し（範囲外は空にする）、案件数に上限を設け、AI が失敗したときは何も保存しません。元のメール本文も保存し、あとから確認できます。</li>
+                    <li><strong>安全性。</strong>メール本文の中に書かれた指示には AI が従わない設計にし、SQL インジェクション・XSS・CSRF への対策を行いました。Excel/CSV に出力するときは、数式として実行されてしまう値（<code>=</code> や <code>+</code> で始まる文字列）への対策もしています。</li>
+                    <li><strong>使いやすさ。</strong>日本語の分かりやすいエラー表示、確認画面つきの削除、スマホ対応、Excel で読みやすい列幅にこだわりました。</li>
+                    <li><strong>個人情報への配慮。</strong>案件メールには取引先の情報が含まれるため、無料枠の AI は入力内容が学習に使われる可能性があることを踏まえ、公開用のスクリーンショットには架空のデータだけを使っています。</li>
+                    <li><strong>壊れにくさ。</strong>段階ごとのレビューと自動テストで、機能を追加しても既存の機能が壊れないようにしました。</li>
+                  </ul>
+                </section>
+
+                <p class="note-box">開発には AI アシスタント（Claude Code）を活用しました。要件の決定・仕様の判断・動作の確認は自分で行い、AI の提案をそのまま使うのではなく、検証と修正を重ねています。</p>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- サラダ会議 -->
+        <dialog class="modal" id="modal-salad" aria-labelledby="modal-salad-title">
+          <div class="modal__inner">
+            <button type="button" class="modal__close" data-modal-close aria-label="閉じる" autofocus>&times;</button>
+            <header class="modal__head">
+              <p class="modal__cat">Webサイト制作</p>
+              <h3 id="modal-salad-title">サラダ会議</h3>
+              <p class="modal__summary">「新鮮なつながりを、ひとつのサラダから」をコンセプトにした、架空企業のコーポレートサイトです。JavaScript で、スクロールに合わせた動きを加えました。</p>
+            </header>
+
+            <div class="modal__body">
+              <div class="gallery" data-gallery>
+                <figure>
+                  <img src="images/works/salad-pc-w1200.webp" data-thumb="images/works/salad-pc-w600.webp" width="1200" height="750" loading="lazy" alt="サラダ会議のトップページ（パソコン表示）">
+                  <figcaption>パソコン表示</figcaption>
+                </figure>
+                <figure>
+                  <img src="images/works/salad-pc-service-w1200.webp" data-thumb="images/works/salad-pc-service-w600.webp" width="1200" height="750" loading="lazy" alt="サラダ会議のサービス紹介（スクロールで順に現れた状態。右下にトップへ戻るボタン、上部に読み進めバー）">
+                  <figcaption>サービス紹介（スクロールで現れた状態）</figcaption>
+                </figure>
+                <figure class="is-portrait">
+                  <img src="images/works/salad-sp-w600.webp" data-thumb="images/works/salad-sp-w600.webp" width="600" height="1298" loading="lazy" alt="サラダ会議のトップページ（スマートフォン表示）">
+                  <figcaption>スマートフォン表示</figcaption>
+                </figure>
+              </div>
+
+              <div class="modal__content">
+                <dl class="facts">
+                  <div><dt>制作期間</dt><dd>約 1 週間</dd></div>
+                  <div><dt>担当</dt><dd>構成・デザイン・コーディング</dd></div>
+                  <div><dt>使用技術</dt><dd>HTML ／ CSS ／ JavaScript（ライブラリなし）／ Google Fonts（Poppins・Noto Sans JP・Dancing Script）</dd></div>
+                </dl>
+
+                <section class="modal__section">
+                  <h4>制作背景</h4>
+                  <p>食を通じた「人のつながり」をテーマに架空の企業を設定し、企業サイトの基本構成（コンセプト・サービス・会社概要）を、見やすさを重視して制作する練習として作りました。</p>
+                </section>
+
+                <section class="modal__section">
+                  <h4>制作過程</h4>
+                  <ol class="steps">
+                    <li><strong>コンセプトの設定</strong>企業の理念とターゲットを決め、キャッチコピーを考えました。</li>
+                    <li><strong>構成の設計</strong>Concept ／ Service ／ Company の 3 つに絞り、伝えたい順に並べました。</li>
+                    <li><strong>配色・フォントの選定</strong>緑を基調に、英字と日本語の書体を組み合わせました。</li>
+                    <li><strong>コーディング</strong>HTML と CSS（Flexbox）で実装しました。</li>
+                    <li><strong>スマホ表示の調整</strong>画面幅が変わっても読みやすいように調整しました。</li>
+                    <li><strong>動きの追加</strong>JavaScript で、見出し・文章・写真がスクロールに合わせて順に現れる動き、ヒーロー画像の視差、読み進めバー、トップへ戻るボタンを加えました。</li>
+                  </ol>
+                </section>
+
+                <section class="modal__section">
+                  <h4>意識したこと</h4>
+                  <ul class="points">
+                    <li><strong>第一印象。</strong>ファーストビューに、世界観が伝わる写真とキャッチコピーを大きく配置しました。</li>
+                    <li><strong>清潔感。</strong>緑を基調に、余白を広めにとって読みやすくしました。</li>
+                    <li><strong>情報の整理。</strong>サービスを 3 つに分けて、短い文章で読み進められるようにしました。</li>
+                    <li><strong>どの画面でも読める。</strong>スマートフォンでも崩れないレイアウトにしました。</li>
+                    <li><strong>動きは控えめに、内容が先。</strong>JavaScript が動かないときや、端末の「動きを減らす」設定のときでも、内容がそのまま読めるようにしました。</li>
+                  </ul>
+                </section>
+
+                <div class="modal__links">
+                  <a class="btn btn--primary" href="https://yohei-tazawa1023.github.io/sample2/" target="_blank" rel="noopener noreferrer">サイトを見る<span class="sr-only">（新しいタブで開きます）</span></a>
+                  <a class="btn btn--ghost" href="https://github.com/Yohei-tazawa1023/sample2" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only">（新しいタブで開きます）</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- Salon Sample -->
+        <dialog class="modal" id="modal-salon" aria-labelledby="modal-salon-title">
+          <div class="modal__inner">
+            <button type="button" class="modal__close" data-modal-close aria-label="閉じる" autofocus>&times;</button>
+            <header class="modal__head">
+              <p class="modal__cat">Webサイト制作</p>
+              <h3 id="modal-salon-title">Salon Sample</h3>
+              <p class="modal__summary">「髪と心を癒すサロン」を想定した美容室のサンプルサイトです。メニュー・スタイル・スタッフ・アクセス・予約までを 1 ページにまとめ、スマートフォンでもレイアウトが崩れないように調整しました。</p>
+            </header>
+
+            <div class="modal__body">
+              <div class="gallery" data-gallery>
+                <figure>
+                  <img src="images/works/salon-pc-w1200.webp" data-thumb="images/works/salon-pc-w600.webp" width="1200" height="750" loading="lazy" alt="Salon Sample のトップページ（パソコン表示）">
+                  <figcaption>パソコン表示</figcaption>
+                </figure>
+                <figure class="is-portrait">
+                  <img src="images/works/salon-sp-w600.webp" data-thumb="images/works/salon-sp-w600.webp" width="600" height="1298" loading="lazy" alt="Salon Sample のトップページ（スマートフォン表示）">
+                  <figcaption>スマートフォン表示</figcaption>
+                </figure>
+                <figure class="is-portrait">
+                  <img src="images/works/salon-sp-menu-w600.webp" data-thumb="images/works/salon-sp-menu-w600.webp" width="600" height="1298" loading="lazy" alt="Salon Sample のスマートフォン表示（メニューボタンを押して、項目を開いた状態）">
+                  <figcaption>スマートフォン表示（メニューを開いた状態）</figcaption>
+                </figure>
+              </div>
+
+              <div class="modal__content">
+                <dl class="facts">
+                  <div><dt>制作期間</dt><dd>約 1 週間</dd></div>
+                  <div><dt>担当</dt><dd>構成・デザイン・コーディング</dd></div>
+                  <div><dt>使用技術</dt><dd>HTML ／ CSS ／ JavaScript ／ Google Fonts（Noto Serif JP）／ Google マップ埋め込み</dd></div>
+                </dl>
+
+                <section class="modal__section">
+                  <h4>制作背景</h4>
+                  <p>店舗サイトの定番の構成（メニュー・スタイル・スタッフ・アクセス・予約）を、ひと通り作ってみる練習として制作しました。予約フォームや地図など、実際のお店のサイトで必要になる要素も入れています。</p>
+                </section>
+
+                <section class="modal__section">
+                  <h4>制作過程</h4>
+                  <ol class="steps">
+                    <li><strong>構成の設計</strong>来店につながる順番（コンセプト → メニュー → スタイル → スタッフ → アクセス → 予約）で構成しました。</li>
+                    <li><strong>デザイン</strong>落ち着いた色と明朝体で、上質な雰囲気にしました。</li>
+                    <li><strong>コーディング</strong>HTML と CSS で実装し、メニュー表や予約フォームを作りました。</li>
+                    <li><strong>動きの追加</strong>JavaScript で、スクロールに合わせてふわっと表示される動きをつけました。</li>
+                    <li><strong>スマホ表示の調整</strong>スマートフォンでメニューが縦に折れ曲がったり、横にはみ出したりしないよう、ハンバーガーメニューや画像・フォームのサイズを見直しました。パソコン表示の見た目は変えていません。</li>
+                  </ol>
+                </section>
+
+                <section class="modal__section">
+                  <h4>意識したこと</h4>
+                  <ul class="points">
+                    <li><strong>スマホでの使いやすさ。</strong>幅 320px の小さな画面まで確認し、メニューやボタンを押しやすい大きさにしました。入力欄は iPhone で拡大されない文字サイズにしています。</li>
+                    <li><strong>予約までの導線。</strong>ヘッダー、ファーストビューのボタン、ページ下部のフォームと、どこからでも予約へ進めるようにしました。</li>
+                    <li><strong>上質な雰囲気。</strong>明朝体と余白で、落ち着いた印象に仕上げました。</li>
+                    <li><strong>見やすい料金表。</strong>メニューと料金を、ひと目で比べられるように並べました。</li>
+                    <li><strong>使いやすいフォーム。</strong>氏名・電話・メール・日付・メニュー・メッセージを、迷わず入力できる並びにしました。</li>
+                  </ul>
+                </section>
+
+                <div class="modal__links">
+                  <a class="btn btn--primary" href="https://yohei-tazawa1023.github.io/sample/" target="_blank" rel="noopener noreferrer">サイトを見る<span class="sr-only">（新しいタブで開きます）</span></a>
+                  <a class="btn btn--ghost" href="https://github.com/Yohei-tazawa1023/sample" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only">（新しいタブで開きます）</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- SAMURAI ENGINEER バナー -->
+        <dialog class="modal" id="modal-samurai" aria-labelledby="modal-samurai-title">
+          <div class="modal__inner">
+            <button type="button" class="modal__close" data-modal-close aria-label="閉じる" autofocus>&times;</button>
+            <header class="modal__head">
+              <p class="modal__cat">バナー制作</p>
+              <h3 id="modal-samurai-title">SAMURAI ENGINEER バナー</h3>
+              <p class="modal__summary">Web デザインスクールの無料説明会への誘導を想定した、正方形（1080×1080）の広告バナーです。</p>
+            </header>
+
+            <div class="modal__body">
+              <div class="gallery" data-gallery>
+                <figure>
+                  <img src="images/works/banner-samurai-w1080.webp" data-thumb="images/works/banner-samurai-w600.webp" width="1080" height="1080" loading="lazy" alt="SAMURAI ENGINEER の正方形バナー。「稼げるスキルを安心して身につける」「受講料1ヶ月0円」「まずはオンライン説明会へ」と書かれている">
+                  <figcaption>バナー（1080×1080）</figcaption>
+                </figure>
+              </div>
+
+              <div class="modal__content">
+                <dl class="facts">
+                  <div><dt>制作期間</dt><dd>約 1〜2 日</dd></div>
+                  <div><dt>サイズ</dt><dd>1080 × 1080 px</dd></div>
+                  <div><dt>使用ツール</dt><dd>Canva ／ Figma</dd></div>
+                </dl>
+
+                <section class="modal__section">
+                  <h4>制作背景</h4>
+                  <p>学習サービスの無料説明会へ誘導する広告を想定して、「伝えたいことを一瞬で伝える」バナーの練習として制作しました。</p>
+                </section>
+
+                <section class="modal__section">
+                  <h4>制作過程</h4>
+                  <ol class="steps">
+                    <li><strong>訴求の整理</strong>誰に何を伝えるか、最も伝えたいメッセージを決めました。</li>
+                    <li><strong>情報の優先順位づけ</strong>メッセージ → 特典 → 行動の呼びかけの順に、大きさを変えて配置しました。</li>
+                    <li><strong>配色・レイアウト</strong>青と黄色を使い、人物写真と文字が重なっても読めるように調整しました。</li>
+                    <li><strong>仕上げ</strong>文字の大きさ・余白を見直し、小さく表示されても読めるか確認しました。</li>
+                  </ol>
+                </section>
+
+                <section class="modal__section">
+                  <h4>意識したこと</h4>
+                  <ul class="points">
+                    <li><strong>一番伝えたいことを最大に。</strong>「稼げるスキル」を最も大きく見せました。</li>
+                    <li><strong>特典を目立たせる。</strong>「受講料 1ヶ月 0 円」を円形のバッジで強調しました。</li>
+                    <li><strong>行動を促す。</strong>下部の帯とボタン風の矢印で、「オンライン説明会へ」の次の行動を示しました。</li>
+                    <li><strong>色のコントラスト。</strong>信頼感のある青に、注目を集める黄色を合わせました。</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </dialog>
+
+        <!-- OUTDOOR FESTIVAL バナー -->
+        <dialog class="modal" id="modal-outdoor" aria-labelledby="modal-outdoor-title">
+          <div class="modal__inner">
+            <button type="button" class="modal__close" data-modal-close aria-label="閉じる" autofocus>&times;</button>
+            <header class="modal__head">
+              <p class="modal__cat">バナー制作</p>
+              <h3 id="modal-outdoor-title">OUTDOOR FESTIVAL 2024 バナー</h3>
+              <p class="modal__summary">アウトドアイベントの告知を想定した、横長のバナーです。日時・場所・「入場無料」を一目で伝える構成にしました。</p>
+            </header>
+
+            <div class="modal__body">
+              <div class="gallery" data-gallery>
+                <figure>
+                  <img src="images/works/banner-outdoor-w1200.webp" data-thumb="images/works/banner-outdoor-w600.webp" width="1200" height="628" loading="lazy" alt="OUTDOOR FESTIVAL 2024 の告知バナー。9月21日から23日、昭和記念公園で開催、入場無料と書かれている">
+                  <figcaption>バナー（1200×628）</figcaption>
+                </figure>
+              </div>
+
+              <div class="modal__content">
+                <dl class="facts">
+                  <div><dt>制作期間</dt><dd>約 1〜2 日</dd></div>
+                  <div><dt>サイズ</dt><dd>1200 × 628 px</dd></div>
+                  <div><dt>使用ツール</dt><dd>Canva ／ Figma</dd></div>
+                </dl>
+
+                <section class="modal__section">
+                  <h4>制作背景</h4>
+                  <p>屋外イベントの告知を想定して、SNS やウェブ広告で目に留まりやすい横長バナーの練習として制作しました。</p>
+                </section>
+
+                <section class="modal__section">
+                  <h4>制作過程</h4>
+                  <ol class="steps">
+                    <li><strong>伝える情報の整理</strong>イベント名・日付・場所・入場無料、の 4 つを必須の情報としました。</li>
+                    <li><strong>写真の選定</strong>家族連れ・テント・夜のキャンプなど、楽しさと雰囲気が伝わる写真を組み合わせました。</li>
+                    <li><strong>レイアウト</strong>緑の面に情報をまとめ、写真が周りを囲む構成にしました。</li>
+                    <li><strong>仕上げ</strong>文字の大きさ・余白を調整しました。</li>
+                  </ol>
+                </section>
+
+                <section class="modal__section">
+                  <h4>意識したこと</h4>
+                  <ul class="points">
+                    <li><strong>情報の階層。</strong>イベント名を最も大きく、日付は白い帯で、場所は下に、と順に目が動くようにしました。</li>
+                    <li><strong>世界観。</strong>緑の面と、ロゴ風の手書き文字で、アウトドアらしい雰囲気を出しました。</li>
+                    <li><strong>参加のしやすさ。</strong>「ENTRANCE FREE」のバッジで、気軽に来られることを伝えました。</li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </section>
+
+    <!-- ================= Skills ================= -->
+    <section class="section section--soft" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Skills</p>
+          <h2 id="skills-title">スキル</h2>
+          <p class="section-lead">サイト制作から業務システム、デザイン、AI 活用まで。</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>コーディング・開発 <span>Coding</span></h3>
+            <ul class="chips">
+              <li><img src="images/svg_icon/html5.svg" alt="" width="18" height="18">HTML / CSS</li>
+              <li><img src="images/svg_icon/javascript.svg" alt="" width="18" height="18">JavaScript</li>
+              <li><img src="images/svg_icon/php.svg" alt="" width="18" height="18">PHP</li>
+              <li><img src="images/svg_icon/laravel.svg" alt="" width="18" height="18">Laravel</li>
+              <li><img src="images/svg_icon/wordpress.svg" alt="" width="18" height="18">WordPress</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>MySQL</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Git / GitHub</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3>デザイン <span>Design</span></h3>
+            <ul class="chips">
+              <li><span class="chip-dot" aria-hidden="true"></span>Photoshop</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Illustrator</li>
+              <li><img src="images/svg_icon/figma.svg" alt="" width="18" height="18">Figma</li>
+              <li><img src="images/svg_icon/canva.svg" alt="" width="18" height="18">Canva</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Studio</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3>AI・ノーコード <span>AI / No-code</span></h3>
+            <ul class="chips">
+              <li><span class="chip-dot" aria-hidden="true"></span>ChatGPT</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Gemini（API 連携）</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Claude（開発で活用）</li>
+              <li><img src="images/svg_icon/framer.svg" alt="" width="18" height="18">Framer</li>
+              <li><img src="images/svg_icon/webflow.svg" alt="" width="18" height="18">Webflow</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Midjourney</li>
+              <li><span class="chip-dot" aria-hidden="true"></span>Runway</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= About ================= -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2 id="about-title">自己紹介</h2>
+          <p>Web 制作と業務システム開発の両方に取り組んでいます。HTML・CSS・JavaScript でのサイト制作に加え、Laravel と MySQL を使った業務アプリ、AI の API を組み込んだ入力の自動化など、実際に動くものを作りながら学んでいます。</p>
+          <p>見た目の使いやすさと、裏側の安全性・正確さの、どちらも大切にしています。AI を開発のパートナーとして活用しながら、要件の判断・検証・修正は自分で行うことを心がけています。</p>
+        </div>
+
+        <ul class="about-cards">
+          <li class="reveal">
+            <h3>サイト制作</h3>
+            <p>HTML・CSS・JavaScript で、スマホにも対応した読みやすいサイトを制作します。</p>
+          </li>
+          <li class="reveal">
+            <h3>業務システム開発</h3>
+            <p>Laravel と MySQL で、一覧・検索・出力などの業務アプリを作ります。</p>
+          </li>
+          <li class="reveal">
+            <h3>AI 活用</h3>
+            <p>AI の API を組み込んだ入力の自動化と、AI を使った効率的な開発に取り組んでいます。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Contact ================= -->
+    <section class="section section--accent" id="contact" aria-labelledby="contact-title">
+      <div class="container contact reveal">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">お問い合わせ</h2>
+        <p class="section-lead">お仕事のご相談・ご質問は、クラウドワークスのメッセージからお気軽にご連絡ください。</p>
+        <ul class="contact__links">
+          <li><a href="https://github.com/Yohei-tazawa1023" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only">（新しいタブで開きます）</span></a></li>
+        </ul>
+      </div>
+    </section>
   </main>
 
-  <!-- フッター -->
-  <footer>
-    <div class="footer_logo_flex">
-      <div class="footer_menu">
-        <a href="/">
-        <img src="./images/logo.jpg" alt="ロゴ">
-        </a>
-      </div>
-
-      <div>
-        <a href="#" class="back-to-top">ページトップに戻る</a>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="#top">Yohei<span aria-hidden="true">.</span></a>
+      <p class="footer-copy">&copy; Yohei. All rights reserved.</p>
+      <a class="back-to-top" href="#top">ページトップへ戻る</a>
     </div>
-
-      <nav>
-        <ul class="footer_menu_flex">
-          <li><a href="./works/index.html">Works</a></li>
-          <li><a href="./about/index.html">About</a></li>
-          <li><a href="./blog/index.html">Blog</a></li>
-          <li><a href="./contact/index.html">Contact</a></li>
-        </ul>
-      </nav>
-
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-  <script src="./js/main.js"></script>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
